@@ -10,8 +10,8 @@
 
 - [Workbook Schema](#Workbook-Schema)
 - [Light Cell Data Handlers](#Light-Cell-Data-Handlers)
-- [Data Builder](#DataBuilder)
-- [Data Importer](#DataImporter)
+- [Data Builder](#Data-Builder)
+- [Data Importers](#Data-Importers)
 - [FAQ](#faq)
 
 
@@ -49,7 +49,7 @@ And the rest of encryption and decryption is done by Advanced Encryption Standar
 ## Data Builder
 &emsp;&emsp; Every service method requires a model that forms the request header for every GST API calls that mainly comprises of  properties like _Username_, _StateCode_, _GSTIN_, _ReturnPeriod_, _GSTNAppKey_ etc. And in case of requests like save, submit or file, would require data for actions like 'RETSAVE', 'RETSUBMIT' or 'RETFILE' in json string format, namely _JsonData_. For more payload related information on specific return type, go visit: https://developer.gst.gov.in/apiportal/taxpayer/returns/apilist.
 
-## Data Importer
+## Data Importers
 &emsp;&emsp; Among the immediate updates comprises of method description, building models for every save, submit, file and other request payload, etc. This sdk needes lot of conributions which would complete my vision of unified GST software and in turn change the lifes of many taxpayer as well as software developers trying to develop GST returns software.  
 
 ## FAQ
