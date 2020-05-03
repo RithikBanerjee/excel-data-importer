@@ -1,0 +1,229 @@
+{
+  "Sheets": [
+    {
+      "Name": "DemoTable",
+      "LinkDBTables": [
+        "DemoDetails",
+        "DemoItems"
+      ],
+      "Columns": [
+        {
+          "NamesToFind": [
+            "Id",
+            "Index",
+            "Demo Index"
+          ],
+          "Required": true,
+          "DefaultValue": "AAA-000",
+          "DBFieldName": "Id",
+          "ParrentTable": "self",
+          "DBTableName": "DemoTable",
+          "RegExPattern": "[a-zA-Z0-9,&./]",
+          "RegexMessageIfInvalid": "Demo Id is invalid",
+          "DataType": "System.Int32"
+        },
+        {
+          "NamesToFind": [
+            "Type",
+            "Demo Type"
+          ],
+          "Required": true,
+          "DefaultValue": "INV",
+          "DBFieldName": "Type",
+          "ParrentTable": "self",
+          "DBTableName": "DemoTable",
+          "RegExPattern": "^INV$|^CRN$|^DBN$",
+          "RegexMessageIfInvalid": "Demo Type invalid",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "Date",
+            "Demo Date"
+          ],
+          "Required": true,
+          "DefaultValue": "01/01/2000",
+          "DBFieldName": "Date",
+          "ParrentTable": "self",
+          "DBTableName": "DemoTable",
+          "RegExPattern": "",
+          "RegexMessageIfInvalid": "Demo Date invalid",
+          "DataType": "System.DateTime"
+        },
+        {
+          "NamesToFind": [
+            "Name",
+            "Demo Name"
+          ],
+          "Required": true,
+          "DefaultValue": "N/A",
+          "DBFieldName": "Name",
+          "DBTableName": "DemoTable",
+          "ParrentTable": "self",
+          "RegExPattern": "[a-zA-Z0-9,&./]",
+          "RegexMessageIfInvalid": "Demo Name invalid",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "Category",
+            "Demo Category"
+          ],
+          "Required": true,
+          "DefaultValue": "Y",
+          "DBFieldName": "Category",
+          "DBTableName": "DemoTable",
+          "RegExPattern": "^Y$|^N$",
+          "RegexMessageIfInvalid": "Demo Category invalid",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "Trade Name",
+            "Legal Name"
+          ],
+          "Required": false,
+          "DefaultValue": "N/A",
+          "DBFieldName": "TradeName",
+          "DBTableName": "DemoDetails",
+          "RegExPattern": "[a-zA-Z0-9,&./]",
+          "RegexMessageIfInvalid": "Trade Name for Demo Details is invalid",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "Address",
+            "Full Address",
+            "Address Details"
+          ],
+          "Required": true,
+          "DefaultValue": "A-0, AAA",
+          "DBFieldName": "Address",
+          "DBTableName": "DemoDetails",
+          "RegExPattern": "[a-zA-Z0-9,&./]",
+          "RegexMessageIfInvalid": "Address for Demo Details is invalid",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "Phone Number",
+            "Mobile Number"
+          ],
+          "Required": true,
+          "DefaultValue": "0000000000",
+          "DBFieldName": "PhoneNumber",
+          "DBTableName": "DemoDetails",
+          "RegExPattern": "^[0-9]{10}$",
+          "RegexMessageIfInvalid": "Phone Number should be of 10 digits",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "State",
+            "State Name"
+          ],
+          "Required": true,
+          "DefaultValue": "N/A",
+          "DBFieldName": "State",
+          "DBTableName": "DemoDetails",
+          "RegexPattern": "[a-zA-Z]",
+          "RegexMessageIfInvalid": "State for Demo Details is invalid",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "City",
+            "City Name"
+          ],
+          "Required": true,
+          "DefaultValue": "N/A",
+          "DBFieldName": "City",
+          "DBTableName": "DemoDetails",
+          "RegExPattern": "[a-zA-Z]",
+          "RegexMessageIfInvalid": "City should be in the given state",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "Serial No",
+            "Item Serial No",
+            "Serial Number",
+            "Item Serial Number"
+          ],
+          "Required": false,
+          "DefaultValue": "A0000A",
+          "DBFieldName": "SerialNo",
+          "DBTableName": "DemoItems",
+          "RegExPattern": "[a-zA-Z0-9,&./]",
+          "RegexMessageIfInvalid": "Item Serial Number is invalid",
+          "DataType": "System.String"
+        },
+        {
+          "NamesToFind": [
+            "Quantity",
+            "No of Items",
+            "Number of Items"
+          ],
+          "Required": true,
+          "DefaultValue": "0",
+          "DBFieldName": "Quantity",
+          "DBTableName": "DemoItems",
+          "RegExPattern": "[0-9]",
+          "RegexMessageIfInvalid": "Quantity should be numeric",
+          "DataType": "System.Int64"
+        },
+        {
+          "NamesToFind": [
+            "Unit Price"
+          ],
+          "Required": true,
+          "DefaultValue": "0",
+          "DBFieldName": "UnitPrice",
+          "DBTableName": "DemoItems",
+          "RegExPattern": "[0-9.]",
+          "RegexMessageIfInvalid": "Unit Price should be decimal ",
+          "DataType": "System.Double"
+        },
+        {
+          "NamesToFind": [
+            "GST Rate",
+            "Item Rate"
+          ],
+          "Required": true,
+          "DefaultValue": "0",
+          "DBFieldName": "GSTRate",
+          "DBTableName": "DemoItems",
+          "RegExPattern": "[0-9.%]",
+          "RegexMessageIfInvalid": "GST Rate for Demo Item is invalid",
+          "DataType": "System.Double"
+        },
+        {
+          "NamesToFind": [
+            "GST Amount",
+            "TaxableValue"
+          ],
+          "Required": true,
+          "DefaultValue": "0",
+          "DBFieldName": "GSTAmount",
+          "DBTableName": "DemoItems",
+          "RegExPattern": "[0-9.]",
+          "RegexMessageIfInvalid": "Tax Amount for Demo Item is invalid",
+          "DataType": "System.Double"
+        },
+        {
+          "NamesToFind": [
+            "Amount",
+            "Item Amount"
+          ],
+          "Required": true,
+          "DefaultValue": "0",
+          "DBFieldName": "Amount",
+          "DBTableName": "DemoItems",
+          "RegExPattern": "[0-9.]",
+          "RegexMessageIfInvalid": "Item Amount for Demo Item is invalid",
+          "DataType": "System.Double"
+        }
+      ]
+    }
+  ]
+}

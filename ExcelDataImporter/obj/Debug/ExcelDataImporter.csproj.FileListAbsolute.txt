@@ -1,0 +1,9 @@
+E:\Temp\ExcelDataImporter\ExcelDataImporter\bin\Debug\ExcelDataImporter.dll
+E:\Temp\ExcelDataImporter\ExcelDataImporter\bin\Debug\ExcelDataImporter.pdb
+E:\Temp\ExcelDataImporter\ExcelDataImporter\bin\Debug\Aspose.Cells.dll
+E:\Temp\ExcelDataImporter\ExcelDataImporter\bin\Debug\Newtonsoft.Json.dll
+E:\Temp\ExcelDataImporter\ExcelDataImporter\bin\Debug\System.Data.CData.Excel.dll
+E:\Temp\ExcelDataImporter\ExcelDataImporter\obj\Debug\ExcelDataImporter.csproj.CoreCompileInputs.cache
+E:\Temp\ExcelDataImporter\ExcelDataImporter\obj\Debug\ExcelDataImporter.csproj.CopyComplete
+E:\Temp\ExcelDataImporter\ExcelDataImporter\obj\Debug\ExcelDataImporter.dll
+E:\Temp\ExcelDataImporter\ExcelDataImporter\obj\Debug\ExcelDataImporter.pdb
