@@ -3,8 +3,8 @@
 
 # Excel Data Importer
 
-&emsp;&emsp; [GSP API](/GSTAPI) is a friendly class library which you can use to build your own GST software. It runs on .Net framework 4.6.1 and c# verion 6.0 just to help those millions of software developers to develop software on GST returns with better customization and better statical solutions. This is a software management tool used to file, save, submit as well as fetch GST details for any taxpayer.<br />
-&emsp;&emsp; This c# class library has the capability of versatile software development and would make software development for GST returns simple and convinient. If used the sdk correctly can harness any big GST software and can be improvised since its open source. 
+&emsp;&emsp; [Excel Data Importer](/ExcelDataImporter) is a class library which you can use to import excel data into your own software or database in just few fractions of a second. It runs on .Net framework 4.6.1 and c# verion 6.0  and such a fast excel processing is done by aspose cells and c data libraries of .Net. This is the ultimate software management tool for excel to tally or any other software data import as per the given schema.<br />
+&emsp;&emsp; The data importer needs just the excel file path and the schema file path to which schema it would parse the excel data. Then it validates the excel schema with the schema provided, if error in schema it returns message as provided. Then it validates the excel data with the schema provided and parses the valid data and invalid data as a result for the excel import.
 
 # Tables of Content
 
@@ -16,61 +16,28 @@
 
 
 ## Workbook Schema 
-&emsp;&emsp; The class library provides a number of services which includes authentication of taxpayers, authentication token on OTP from GST portal, public api services, and all the GST returns api as provided by gst portal. These services internally make their own web client and required encryption to send the api call to gst portal in order to fetch encrypted response which is decrypted and return to the user.<br />
-&emsp;&emsp; The services incorporates authentication services, common or public services, document services, gstr1 services, gstr2a services, gstr3 services, gstr3b services, gstr4 services, gstr4a services, gstr7 services, gstr9c services, gstr9 services, cmp08 services, itc04 services and other services which includes methods like get details, save, submit as well as file details. For more information, go visit: https://developer.gst.gov.in/apiportal.
+&emsp;&emsp; [Workbook Schema](\ExcelDataImporter\Model\WorkbookSchema.cs) is the excel schema structure or the model in which the Json schema provided is parsed and used to process. The Json schema has many useful properties as you can set the names of the column to find in the excel, regex pattern for every column, message on invalid regex for any row, default values for empty column and many more. And [here] is an example of the json schema you need to provide before you try import excel. <br />
+&emsp;&emsp; The complete structure of the library depends on this model and if the provided schema is incorrect then the output data won't be as expected. Hence, the model and the depending classes are highly coupled and less cohesive.
 
 ## Light Cell Data Handlers
-&emsp;&emsp; As the name suggests these class files help the service classes to achieve its goals of persuing processed GST api respone. These are done in three class files includes as follows:
-
-#### 1. Request Handler
-&emsp;&emsp; From creation of a web client to sending the request with the encrypted payload as well as the task of validating the request are the main roles of this class file. Firstly, It validates all the info given in the model then creating the web client request considering all the security protocols. The payload which is taken from user is then encrypted to finally send the request to GST portal.
-
-#### 2. Cipher Handler
-&emsp;&emsp; It works with encryption of request payload and decryption of response payload recieved from the GST poratl. This involves encryption with public GSTN Key, the app key provided by the user at the time of authentication and session key provided by the GST portal at the time of authentication.
-For encryption using GSTN Key, RSA algorithm is used for encryption as shown below:
-```
-RSACryptoServiceProvider rsa = (RSACryptoServiceProvider)certificate.PublicKey.Key;
-byte[] bytesEncrypted = rsa.Encrypt(bytesToBeEncrypted, false);
-```
-For HMAC decryption, SHA256 hash algorithm is used as shown below:
-```
-using (var hmacsha256 = new HMACSHA256(sessionKeyBytes))
-{
-    byte[] data = Encoding.UTF8.GetBytes(base64String);
-    byte[] hashmessage = hmacsha256.ComputeHash(data);
-    return Convert.ToBase64String(hashmessage);
-}
-```
-And the rest of encryption and decryption is done by Advanced Encryption Standard (AES) symmetric algorithm. For more security related information, go visit: https://developer.gst.gov.in.
-
-#### 3. Url handler
-&emsp;&emsp; A simple class file which provides the url for the web client request in order to maintain the access name, version and mod name of the GST API urls. This class file is made independent from the rest of the helpers since, any change in url would not cause any kind of change in creating request. 
+&emsp;&emsp; This includes one abstract class which is needed to be inherited in case you need to import your excel data into your own class. Actually, this [base](/ExcelDataImporter\ExcelDataImporter\LightCellDataHandlers\BaseLightCellDataHandler.cs) class inherits the light cell data handler of Aspose Cell's which allows to iterate over the excel cells at an unimaginable rate as well as process every cell indiviually with the superclass methods StartEachRow, ProcessCellFurther and ProcessRowFurther as per the object you need.<br />
+&emsp;&emsp; There are few are two demo light cell handlers created to give directions on how you can create your own object's light cell handler. One is with the traditional datatable which needs no modification and the other is with a [demo](\ExcelDataImporter\ExcelDataImporter\Model\DemoTable.cs) class.
 
 ## Data Builder
-&emsp;&emsp; Every service method requires a model that forms the request header for every GST API calls that mainly comprises of  properties like _Username_, _StateCode_, _GSTIN_, _ReturnPeriod_, _GSTNAppKey_ etc. And in case of requests like save, submit or file, would require data for actions like 'RETSAVE', 'RETSUBMIT' or 'RETFILE' in json string format, namely _JsonData_. For more payload related information on specific return type, go visit: https://developer.gst.gov.in/apiportal/taxpayer/returns/apilist.
+&emsp;&emsp; [Builder](\ExcelDataImporter\ExcelDataImporter\Builder\DataBuilder.cs) is a class file which is constant and needs no modification. It just uses C Data's queries to validate schema and prepare the sheet in order to read it easily and faster for the Aspose Cell's handler. Major responsibilities of this class files includes delete rows above header rows, delete blank rows, remove formatting etc.
 
 ## Data Importers
-&emsp;&emsp; Among the immediate updates comprises of method description, building models for every save, submit, file and other request payload, etc. This sdk needes lot of conributions which would complete my vision of unified GST software and in turn change the lifes of many taxpayer as well as software developers trying to develop GST returns software.  
+&emsp;&emsp; This is the public method which is called from the excel is imported and hence it is also needed to be modified by inheriting the abstract [base]() class which is responsible for adding row index, formating date, sorting the data according to the unique field in order to help map the those objects which have One-2-Many or Many-2-Many relation which their properties.
 
 ## FAQ
 
 #### How to run the project?
-As sdk user, a [Demo App](/DemoApp) is made to elastrate dll's services.<br />
-As contributor, [GST API visual studio solution](../../blob/master/GSTAPI.sln) in your visual studio and Press 'F5'.
-
-#### What security protocol is used for any request?
-```
-SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls
-```
-#### Any plans for production?
-Needed to work on it a lot.
-
-#### From where does it fetches data?
-From GST Developers Portal's sandbox environment.
+A [Demo App](/DemoApp) is made to elastrate how to use excel importer with a [demo excel](\DemoApp\DemoExcel.xlsx).<br />
+Open [Excel Data Importer](../../blob/master/ExcelDataImporter.sln) in your visual studio and Press 'F5'.
 
 #### What's the minimum framework needed?
-.Net Framework 4.6.1 & C# 6.0
+.Net Framework 4.6.1 & C# 6.0 <br />
+All required dll's are given in [builds]()
 
-#### How to test the project?
-Email me for a demo GSTIN and Username.
-
+#### How is it so fast?
+All thanks to C Data's fast schema validation and Aspose Cell's fast data validation.
