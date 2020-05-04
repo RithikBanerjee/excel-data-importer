@@ -1,5 +1,5 @@
 
-![Poster](/Assests/posters/GST%20API.png)
+![Poster](/Assets/posters/Importer.png)
 
 # Open Source SDK for GST Returns  
 
