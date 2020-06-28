@@ -18,13 +18,14 @@ namespace DemoApp
                     ReadyToImport(Console.ReadLine());
                 }
                 if(Equals(pathOption, 2))
-                    ReadyToImport(DirectoryPath(@"DemoExcel.xlsx"));
+                    ReadyToImport(DirectoryPath("DemoExcel.xlsx"));
             }
             Console.ReadKey();
         }
 
         static void ReadyToImport(string excelPath)
         {
+            //example for datatypes: datatable and object for demo purpose
             Console.WriteLine("Choose data option:\n1.Import in datatable? \n2.Import in collection of objects?");
             if (int.TryParse(Console.ReadLine(), out var dataOption))
             {
