@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.IO;
 using ExcelDataImporter.DataImporter;
@@ -9,7 +8,8 @@ namespace DemoApp
     {
         static void Main(string[] args)
         {
-            //you can upload any excel file
+            //the demo has 3 phases as follows
+            //phase 1: upload excel file
             Console.WriteLine("Choose path option:\n1.Have excel file path? \n2.Use default file path?");
             if (int.TryParse(Console.ReadLine(), out var pathOption))
             {
@@ -26,7 +26,7 @@ namespace DemoApp
 
         static void ReadyToImport(string excelPath)
         {
-            //example for datatypes: datatable and object for demo purpose
+            //phase 2: choose datatype
             Console.WriteLine("Choose data option:\n1.Import in datatable? \n2.Import in collection of objects?");
             if (int.TryParse(Console.ReadLine(), out var dataOption))
             {
@@ -46,12 +46,17 @@ namespace DemoApp
 
         static string Import<T>(BaseDataImporter<T> dataImporter)
         {
+            //phase 3: call the excel data importer with a specific dataImporter
             if (!dataImporter.ValidateSchema())
                 return $"\n{dataImporter.Workbook.InvalidSchema.Rows[0]["WhyInvalid"]}";
+            
             if (!dataImporter.ValidateData())
                 return "\nInvalid Data";
-            //put debugger here and check dataImporter.Workbook.Sheets[0].ValidData
-            var yourExcelData = dataImporter.Workbook.Sheets[0].ValidData;
+            
+            var yourExcelValidData = dataImporter.Workbook.Sheets[0].ValidData;
+            //yourExcelValidData has all valid data as per schema
+            var yourExcelInValidData = dataImporter.Workbook.Sheets[0].InvalidData;
+            //yourExcelInValidData has all invalid data as per schema
             return "\nImported Successfully";
         }
     }
