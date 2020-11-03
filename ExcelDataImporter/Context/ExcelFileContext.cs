@@ -7,6 +7,7 @@ using ExcelDataImporter.Model;
 
 namespace ExcelDataImporter.Context
 {
+    // C Data based excel importing methods
     internal class ExcelFileContext
     {
         private readonly string ConnectionString;
