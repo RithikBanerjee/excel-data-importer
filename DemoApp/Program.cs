@@ -8,7 +8,7 @@ namespace DemoApp
     {
         static void Main(string[] args)
         {
-            //the demo has 3 phases as follows
+            //the demo console app has 3 phases as follows
             //phase 1: upload excel file
             Console.WriteLine("Choose path option:\n1.Have excel file path? \n2.Use default file path?");
             if (int.TryParse(Console.ReadLine(), out var pathOption))
