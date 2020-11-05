@@ -6,6 +6,7 @@ using ExcelDataImporter.Context;
 
 namespace ExcelDataImporter.DataImporter
 {
+    //common data importer class
     public abstract class BaseDataImporter<T>
     {
         public WorkbookSchema<T> Workbook;
@@ -14,7 +15,7 @@ namespace ExcelDataImporter.DataImporter
             Workbook = WorkBookSchemaContext.GetSchema<T>(excelSchemaPath);
             Workbook.Path = SaveExcel(excelFilePath);
         }
-
+        //save excel file
         private string SaveExcel(string excelFilePath)
         {
             var temporyPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")) + "Excel";
@@ -31,7 +32,7 @@ namespace ExcelDataImporter.DataImporter
             workbook.Save(temporyPath);
             return temporyPath;
         }
-
+        //validate excel schema by given json 
         public bool ValidateSchema()
         {
             var helper = new ExcelFileContext(Workbook.Path);
@@ -39,9 +40,9 @@ namespace ExcelDataImporter.DataImporter
             var context = new WorkBookSchemaContext();
             return context.ValidateSchema(sheetPresents, Workbook);
         }
-
+        //defining method to validate data
         public abstract bool ValidateData();
-
+        //preprocessing excel sheet for validating data
         protected void PreapareExcelBeforeDataValidation()
         {
             var workbook = new Workbook(Workbook.Path);
@@ -53,6 +54,7 @@ namespace ExcelDataImporter.DataImporter
             workbook.Save(Workbook.Path);
         }
 
+        //preprocessing excel sheet for validating data - part 1
         private void AssignRowIdBeforeSorting(Workbook workbook, Sheet<T> sheet)
         {
             var worksheet = workbook.Worksheets[sheet.Name];
@@ -69,6 +71,7 @@ namespace ExcelDataImporter.DataImporter
             }
         }
 
+        //preprocessing excel sheet for validating data - part 2
         private void AssignDateFormat(Workbook workbook, Sheet<T> sheet)
         {
             var worksheet = workbook.Worksheets[sheet.Name];
