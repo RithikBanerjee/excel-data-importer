@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Data;
 using System.Linq;
@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 namespace ExcelDataImporter.Context
 {
+    // pre processing the workbook schema object 
     internal class WorkBookSchemaContext
     {
         internal static WorkbookSchema<T> GetSchema<T>(string schemaPath)
