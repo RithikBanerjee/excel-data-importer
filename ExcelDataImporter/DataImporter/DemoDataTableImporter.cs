@@ -4,6 +4,7 @@ using ExcelDataImporter.LightCellDataHandlers;
 
 namespace ExcelDataImporter.DataImporter
 {
+    //data validator class created based on the datatype
     public class DemoDataTableImporter : BaseDataImporter<DataTable>
     {
         public DemoDataTableImporter(string excelFilePath, string excelSchemaPath) : base(excelFilePath, excelSchemaPath)
