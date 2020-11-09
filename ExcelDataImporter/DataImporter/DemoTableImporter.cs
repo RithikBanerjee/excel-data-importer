@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Aspose.Cells;
 using ExcelDataImporter.Model;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using ExcelDataImporter.LightCellDataHandlers;
 
 namespace ExcelDataImporter.DataImporter
 {
+    //demo data importer for type: list of objects
     public class DemoTableImporter : BaseDataImporter<List<DemoTable>>
     {
         public DemoTableImporter(string excelFilePath, string excelSchemaPath) : base(excelFilePath, excelSchemaPath)
