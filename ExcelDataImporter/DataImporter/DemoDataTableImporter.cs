@@ -1,10 +1,10 @@
-﻿using System.Data;
+using System.Data;
 using ExcelDataImporter.Builder;
 using ExcelDataImporter.LightCellDataHandlers;
 
 namespace ExcelDataImporter.DataImporter
 {
-    //data validator class created based on the datatype
+    //demo data importer for type: datatable
     public class DemoDataTableImporter : BaseDataImporter<DataTable>
     {
         public DemoDataTableImporter(string excelFilePath, string excelSchemaPath) : base(excelFilePath, excelSchemaPath)
