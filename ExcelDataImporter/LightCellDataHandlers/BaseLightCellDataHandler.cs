@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using Aspose.Cells;
 using ExcelDataImporter.Model;
 using System.Text.RegularExpressions;
 
 namespace ExcelDataImporter.LightCellDataHandlers
 {
+    //common class to handle indiviual excel cell
     public abstract class BaseLightCellDataHandler<T> : LightCellsDataHandler
     {
         protected Row Row;
