@@ -1,8 +1,9 @@
-﻿using System.Data;
+using System.Data;
 using ExcelDataImporter.Model;
 
 namespace ExcelDataImporter.LightCellDataHandlers
 {
+    //demo class for datatable to handle indiviual excel cell 
     internal class DemoDataTableHandler : BaseLightCellDataHandler<DataTable>
     {
         private DataRow RowData;
