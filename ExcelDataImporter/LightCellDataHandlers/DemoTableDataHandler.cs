@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Linq;
 using ExcelDataImporter.Model;
 using System.Collections.Generic;
 
 namespace ExcelDataImporter.LightCellDataHandlers
 {
+    //demo class for demo datatype to handle indiviual excel cell 
     internal class DemoTableDataHandler : BaseLightCellDataHandler<List<DemoTable>>
     {
         private DemoTable RowData;
