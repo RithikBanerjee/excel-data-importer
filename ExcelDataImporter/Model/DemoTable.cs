@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ExcelDataImporter.Model
 {
+    //demo data type for example
     public class DemoTable
     {
         public int Id { get; set; }
@@ -13,6 +14,7 @@ namespace ExcelDataImporter.Model
         public DemoDetails Details { get; set; }
         public List<DemoItems> Items { get; set; }
     }
+    //demo child data type with 1 to 1 relation
     public class DemoDetails
     {
         public string TradeName { get; set; }
@@ -21,6 +23,7 @@ namespace ExcelDataImporter.Model
         public string State { get; set; }
         public string PhoneNumber { get; set; }
     }
+    //demo child data type with 1 to many relation
     public class DemoItems
     {
         public string SerialNo { get; set; }
