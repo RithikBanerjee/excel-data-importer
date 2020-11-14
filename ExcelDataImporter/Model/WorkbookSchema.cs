@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Collections.Generic;
 
 namespace ExcelDataImporter.Model
 {
+    //excel schema resposne object
     public class WorkbookSchema<T>
     {
         public string Path { get; set; }
